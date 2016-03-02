@@ -3,7 +3,7 @@ package board
 import (
 	"github.com/gorilla/mux"
 	"net/http"
-	"github.com/johnmcdnl/darts-backendv2/utils"
+	"github.com/johnmcdnl/darts-backend/utils"
 )
 
 func BoardRouter(r *mux.Router) {

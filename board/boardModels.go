@@ -1,6 +1,6 @@
 package board
 
-import "github.com/johnmcdnl/sampleapp/common/dartsDB"
+import "github.com/johnmcdnl/darts-backend/data"
 
 type Area struct {
 	AreaName     string
@@ -14,24 +14,24 @@ type AreaType struct {
 
 func getAllAreas() []Area {
 	var a []Area
-	dartsDB.GetDB().Find(&a)
+	data.GetDB().Find(&a)
 	return a
 }
 
 func getAreaByName(name string) Area {
 	var a Area
-	dartsDB.GetDB().Where(Area{AreaName:name}).Find(&a)
+	data.GetDB().Where(Area{AreaName:name}).Find(&a)
 	return a
 }
 
 func getAllAreaTypes() []AreaType {
 	var a []AreaType
-	dartsDB.GetDB().Find(&a)
+	data.GetDB().Find(&a)
 	return a
 }
 
 func getAreaTypeByName(name string) AreaType {
 	var a AreaType
-	dartsDB.GetDB().Where(AreaType{AreaTypeName:name}).Find(&a)
+	data.GetDB().Where(AreaType{AreaTypeName:name}).Find(&a)
 	return a;
 }

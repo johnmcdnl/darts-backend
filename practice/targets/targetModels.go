@@ -1,7 +1,7 @@
 package targets
 
 import (
-	"github.com/johnmcdnl/darts-backendv2/data"
+	"github.com/johnmcdnl/darts-backend/data"
 	"github.com/jinzhu/gorm"
 )
 

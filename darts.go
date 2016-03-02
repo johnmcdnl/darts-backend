@@ -2,8 +2,8 @@ package main
 
 import (
 	"github.com/gorilla/mux"
-	"github.com/johnmcdnl/darts-backendv2/board"
-	"github.com/johnmcdnl/darts-backendv2/practice/targets"
+	"github.com/johnmcdnl/darts-backend/board"
+	"github.com/johnmcdnl/darts-backend/practice/targets"
 	"net/http"
 )
 
