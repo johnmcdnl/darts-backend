@@ -20,7 +20,7 @@ func getAllAreas() []Area {
 
 func getAreaByName(name string) Area {
 	var a Area
-	data.GetDB().Where(Area{AreaName:name}).Find(&a)
+	data.GetDB().Where(Area{AreaName: name}).Find(&a)
 	return a
 }
 
@@ -32,6 +32,6 @@ func getAllAreaTypes() []AreaType {
 
 func getAreaTypeByName(name string) AreaType {
 	var a AreaType
-	data.GetDB().Where(AreaType{AreaTypeName:name}).Find(&a)
-	return a;
+	data.GetDB().Where(AreaType{AreaTypeName: name}).Find(&a)
+	return a
 }

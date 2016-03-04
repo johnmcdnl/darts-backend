@@ -2,8 +2,8 @@ package utils
 
 import (
 	"encoding/json"
-	"net/http"
 	"log"
+	"net/http"
 )
 
 func ToJson(obj interface{}) ([]byte, error) {
@@ -17,9 +17,9 @@ func WriteObjectToResponse(w http.ResponseWriter, myVars interface{}) {
 
 func WriteJsonToResponse(w http.ResponseWriter, json []byte, err error) {
 	StandardContentTypeHeader(w)
-	if (err != nil) {
+	if err != nil {
 		WriteInternalServerError(w, err)
-	}else {
+	} else {
 		w.WriteHeader(http.StatusOK)
 		w.Write(json)
 	}

@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"encoding/json"
 	"net/http"
 )
 
@@ -15,3 +16,7 @@ func OptionsHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 }
 
+func DecodeRequestBodyToType(r *http.Request, obj interface{}) {
+	decoder := json.NewDecoder(r.Body)
+	decoder.Decode(&obj)
+}

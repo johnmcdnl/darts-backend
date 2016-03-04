@@ -1,8 +1,8 @@
 package data
 
 import (
-	"github.com/jinzhu/gorm"
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/jinzhu/gorm"
 	"sync"
 )
 
@@ -18,7 +18,7 @@ func GetDB() *gorm.DB {
 
 func initDb() {
 	conn, err := gorm.Open("mysql", "root:@/gorm?charset=utf8&parseTime=True&loc=Local")
-	if (err != nil) {
+	if err != nil {
 		panic(err)
 	}
 	db = &conn

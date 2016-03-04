@@ -1,13 +1,12 @@
 package targets
 
 import (
-	"github.com/johnmcdnl/darts-backend/data"
 	"github.com/jinzhu/gorm"
+	"github.com/johnmcdnl/darts-backend/data"
 )
 
 type TargetMatch struct {
-	Id         uint `gorm:"primary_key" sql:"AUTO_INCREMENT"`
-	UserID     int     `sql:"index"`
+	UserID     int `sql:"index"`
 	TargetName string
 	Attempts   int
 	Successful int
@@ -55,7 +54,7 @@ func allMatchesByUserAndTarget(userId int, targetName string) []TargetMatch {
 
 func allMatchesByUserAndTargetAverage(userId int, targetName string) AverageTargetMatch {
 
-	var avg = AverageTargetMatch{TargetName:targetName}
+	var avg = AverageTargetMatch{TargetName: targetName}
 
 	matches := allMatchesByUserAndTarget(userId, targetName)
 

@@ -19,6 +19,6 @@ func registerRoutes() *mux.Router {
 	return r
 }
 
-func migrate(){
+func migrate() {
 	targets.Migrate()
 }

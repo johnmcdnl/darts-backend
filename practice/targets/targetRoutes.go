@@ -2,8 +2,8 @@ package targets
 
 import (
 	"github.com/gorilla/mux"
-	"net/http"
 	"github.com/johnmcdnl/darts-backend/utils"
+	"net/http"
 	"strconv"
 )
 
@@ -28,7 +28,9 @@ func createMatchOptionsHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func createMatchHandler(w http.ResponseWriter, r *http.Request) {
-
+	var tm TargetMatch
+	utils.DecodeRequestBodyToType(r, &tm)
+	createNewMatch(tm)
 }
 
 func allMatchesHandler(w http.ResponseWriter, r *http.Request) {
@@ -37,12 +39,11 @@ func allMatchesHandler(w http.ResponseWriter, r *http.Request) {
 
 func allMatchesByUserHandler(w http.ResponseWriter, r *http.Request) {
 	userId, err := strconv.Atoi(mux.Vars(r)["userId"])
-	if (err != nil) {
+	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
-	}else {
-		utils.WriteObjectToResponse(w, allMatchesForUser(userId))
+		return
 	}
-
+	utils.WriteObjectToResponse(w, allMatchesForUser(userId))
 }
 
 func allMatchesByTargetNameHandler(w http.ResponseWriter, r *http.Request) {
@@ -51,16 +52,18 @@ func allMatchesByTargetNameHandler(w http.ResponseWriter, r *http.Request) {
 
 func allMatchesByUserAndTargetNameHandler(w http.ResponseWriter, r *http.Request) {
 	userId, err := strconv.Atoi(mux.Vars(r)["userId"])
-	if (err != nil) {
+	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
+		return
 	}
 	utils.WriteObjectToResponse(w, allMatchesByUserAndTarget(userId, mux.Vars(r)["targetName"]))
 }
 
 func allMatchesByUserAndTargetNameAverageHandler(w http.ResponseWriter, r *http.Request) {
 	userId, err := strconv.Atoi(mux.Vars(r)["userId"])
-	if (err != nil) {
+	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
+		return
 	}
 	utils.WriteObjectToResponse(w, allMatchesByUserAndTargetAverage(userId, mux.Vars(r)["targetName"]))
 }
