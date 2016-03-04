@@ -10,8 +10,8 @@ func ToJson(obj interface{}) ([]byte, error) {
 	return json.Marshal(obj)
 }
 
-func WriteObjectToResponse(w http.ResponseWriter, myVars interface{}) {
-	json, err := ToJson(myVars)
+func WriteObjectToResponse(w http.ResponseWriter, objType interface{}) {
+	json, err := ToJson(objType)
 	WriteJsonToResponse(w, json, err)
 }
 
