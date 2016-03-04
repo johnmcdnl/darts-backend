@@ -22,8 +22,13 @@ func initDb() {
 		panic(err)
 	}
 	db = &conn
-	db.DB().Ping()
 	db.DB().SetMaxIdleConns(10)
 	db.DB().SetMaxOpenConns(100)
 	db.LogMode(true)
+
+	err = db.DB().Ping()
+	if err != nil {
+		panic(err)
+	}
+
 }

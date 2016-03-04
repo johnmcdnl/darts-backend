@@ -25,7 +25,7 @@ func Migrate() {
 }
 
 func createNewMatch(tm TargetMatch) {
-	data.GetDB().Save(tm)
+	data.GetDB().Save(&tm)
 }
 
 func allMatches() []TargetMatch {
